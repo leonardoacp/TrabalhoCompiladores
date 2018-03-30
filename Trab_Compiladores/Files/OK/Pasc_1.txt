@@ -1,0 +1,11 @@
+﻿if
+ddasd
+if
+else
+'info'
+read
+num
+char
+not
+or
+and

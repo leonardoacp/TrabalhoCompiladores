@@ -1,0 +1,14 @@
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/xunit.runner.utility.netstandard15.dll
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netstandard15.dll
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/Trab_Compiladores.Test.deps.json
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/Trab_Compiladores.Test.runtimeconfig.json
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/Trab_Compiladores.Test.runtimeconfig.dev.json
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/Trab_Compiladores.Test.dll
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/bin/Debug/netcoreapp2.0/Trab_Compiladores.Test.pdb
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/obj/Debug/netcoreapp2.0/Trab_Compiladores.Test.csprojResolveAssemblyReference.cache
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/obj/Debug/netcoreapp2.0/Trab_Compiladores.Test.csproj.CoreCompileInputs.cache
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/obj/Debug/netcoreapp2.0/Trab_Compiladores.Test.AssemblyInfoInputs.cache
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/obj/Debug/netcoreapp2.0/Trab_Compiladores.Test.AssemblyInfo.cs
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/obj/Debug/netcoreapp2.0/Trab_Compiladores.Test.dll
+/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/obj/Debug/netcoreapp2.0/Trab_Compiladores.Test.pdb
