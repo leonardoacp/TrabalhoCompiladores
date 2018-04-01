@@ -1659,6 +1659,16 @@
         "build": {
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "Trab_Compiladores/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Trab_Compiladores.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Trab_Compiladores.dll": {}
+        }
       }
     }
   },
@@ -5604,12 +5614,18 @@
         "xunit.runner.visualstudio.2.2.0.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "Trab_Compiladores/1.0.0": {
+      "type": "project",
+      "path": "../Trab_Compiladores/Trab_Compiladores.csproj",
+      "msbuildProject": "../Trab_Compiladores/Trab_Compiladores.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "Microsoft.NETCore.App >= 2.0.0",
+      "Trab_Compiladores >= 1.0.0",
       "xunit >= 2.2.0",
       "xunit.runner.visualstudio >= 2.2.0"
     ]
@@ -5621,11 +5637,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/Trab_Compiladores.Test.csproj",
+      "projectUniqueName": "/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores.Test/Trab_Compiladores.Test.csproj",
       "projectName": "Trab_Compiladores.Test",
-      "projectPath": "/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/Trab_Compiladores.Test.csproj",
+      "projectPath": "/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores.Test/Trab_Compiladores.Test.csproj",
       "packagesPath": "/Users/leo/.nuget/packages/",
-      "outputPath": "/Users/leo/Documents/Trab_Compiladores/Trab_Compiladores.Test/obj",
+      "outputPath": "/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores.Test/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -5641,7 +5657,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/Trab_Compiladores.csproj": {
+              "projectPath": "/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/Trab_Compiladores.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

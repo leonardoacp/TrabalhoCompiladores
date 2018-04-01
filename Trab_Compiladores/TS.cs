@@ -5,11 +5,9 @@ namespace Trab_Compiladores
 {
     public class TS
     {
-        public readonly List<Token> _tokens;
-
-        public TS()
+        public List<Token> SymbolstTable()
         {
-            _tokens = new List<Token>{
+            return new List<Token>{
 
                 //Palavras-chave
                 new Token(Tag.KW, "program", 0, 0 ),

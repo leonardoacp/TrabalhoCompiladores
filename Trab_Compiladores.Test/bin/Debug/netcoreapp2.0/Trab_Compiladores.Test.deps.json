@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "1dd95dd2d0fafa61a502c5060bc1cf86e0b150a4"
+    "signature": "3b6d9a6d87933a992b3d414c05e61b8b311aaa1a"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,6 +9,7 @@
       "Trab_Compiladores.Test/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "15.3.0-preview-20170628-02",
+          "Trab_Compiladores": "1.0.0",
           "xunit": "2.2.0",
           "xunit.runner.visualstudio": "2.2.0"
         },
@@ -357,6 +358,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Ninject/3.3.4": {
+        "dependencies": {
+          "System.Reflection.Emit.ILGeneration": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Ninject.dll": {}
         }
       },
       "runtime.native.System/4.3.0": {
@@ -1023,6 +1033,14 @@
           "Microsoft.TestPlatform.ObjectModel": "15.3.0-preview-20170628-02",
           "System.Threading.ThreadPool": "4.3.0"
         }
+      },
+      "Trab_Compiladores/1.0.0": {
+        "dependencies": {
+          "Ninject": "3.3.4"
+        },
+        "runtime": {
+          "Trab_Compiladores.dll": {}
+        }
       }
     }
   },
@@ -1101,6 +1119,13 @@
       "sha512": "sha512-U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw==",
       "path": "newtonsoft.json/9.0.1",
       "hashPath": "newtonsoft.json.9.0.1.nupkg.sha512"
+    },
+    "Ninject/3.3.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CmbWW97FfJuh4LEOVZM/spqXl4KAulRUjqeMwRd5J9rDMQArmIYaDMU3pyzXXHT062tbF0OPIMwI7tSOtprPfg==",
+      "path": "ninject/3.3.4",
+      "hashPath": "ninject.3.3.4.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
@@ -1556,6 +1581,11 @@
       "sha512": "sha512-CZimTpet23CeI2oXjDtICecAuEJ8Z4xSwNFY2tTKcGfm4IzKBrFmS3yzdqMMdAfiHYUgKlcyefflLOyO9ArKyQ==",
       "path": "xunit.runner.visualstudio/2.2.0",
       "hashPath": "xunit.runner.visualstudio.2.2.0.nupkg.sha512"
+    },
+    "Trab_Compiladores/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -9,26 +9,34 @@ namespace Trab_Compiladores.AnalisadorLexico
         private readonly Service.FileService.IFileService _fileService;
         private readonly Service.TokenService.ITokenService _tokenService;
         private readonly List<Token> _symbolstTable;
-        private  int column;
-        private  int line;
-        private int filePosition;
+        private readonly TS _ts;
+        public  int column;
+        public  int line;
+        public int filePosition;
+        public string _file;
+        public  int previousLine = 1;
+        public bool newLine = false;
         
         public AnalisadorLexico(Service.FileService.IFileService fileService,Service.TokenService.ITokenService tokenService ){
 
-            _fileService = fileService;
+            _fileService = fileService;                                 
             _tokenService = tokenService;
-            _symbolstTable = new TS()._tokens;
+            _ts = new TS();
+            _symbolstTable = _ts.SymbolstTable();
             column = 1;
             line = 1;
             filePosition = 0;
         }
 
-        public List<string> GetTokens(string path){
+        public IEnumerable<TokenResult> GetTokens(string path){
 
-            var tokens = new List<Token>();
-            var fileText = _fileService.ReadAllText(path);
-            var tokensValidate =  TokenValidation(fileText);
-            return _tokenService.FormatTokenString(tokensValidate).ToList();
+            _file = _fileService.ReadAllText(path);
+            TokenResult tokenResult;
+        
+            do {
+                tokenResult = NextToken();
+                yield return tokenResult;
+            } while(tokenResult?.Token?.Tag != Tag.EOF && tokenResult.Status == true);
         }
 
 
@@ -39,32 +47,24 @@ namespace Trab_Compiladores.AnalisadorLexico
         }
 
 
-        public List<TokenResult> TokenValidation(string file)
+        public TokenResult NextToken()
         {
-            var tokens = new List<TokenResult>();
-            var estado = 1;
-            int previousLine = 1;
-            var lexema = new System.Text.StringBuilder();  
-            var newLine = false; 
+            var state = 1;
+            var lexema = new System.Text.StringBuilder(); 
+            char character = ' '; 
 
 
-            for(filePosition = 0; filePosition <= file.Length; filePosition++){
-            
+        while(true){
 
-            if(estado == 1){
-                lexema = new System.Text.StringBuilder();
-            }
-
-            var character = filePosition >= file.Length? ' ': file[filePosition];
-            line = file.Take(filePosition).Count(c => c == '\n') + 1;
-
+            character = filePosition > _file.Length? ' ': _file[filePosition];
+            line = _file.Take(filePosition).Count(c => c == '\n') + 1;
+            filePosition++;
 
             if(previousLine != line){
 
                 column = 1;
                 previousLine = line;
                 newLine = true;
-
             }
             else{
                 newLine = false;
@@ -72,18 +72,16 @@ namespace Trab_Compiladores.AnalisadorLexico
             
             column ++;
 
-                    switch (estado)
+                    switch (state)
                     {
-
-
                         case 1:
-                            if (filePosition == file.Length){
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.EOF, "EOF", line, column)));
+                            if (filePosition == _file.Length){
+                                return new TokenResult(true, "" , new Token(Tag.EOF, "EOF", line, column));
                             }
                             
                             if (character == ' ' || character == '\t' || character == '\n' || character == '\r' || character == '/')
                             {
-                                // Permance no estado = 1
+                                // Permance no state = 1
                                 if (character == '\n')
                                 {
 
@@ -95,154 +93,153 @@ namespace Trab_Compiladores.AnalisadorLexico
 
                                 else if(character == '/'){
 
-                                    estado = 28;
+                                    state = 28;
                                 }
                             }
                             else if (Char.IsLetter(character))
                             {
                                 lexema.Append(character);
-                                estado = 14;
+                                state = 14;
                             }
                             else if (Char.IsDigit(character))
                             {
                                 lexema.Append(character);
-                                estado = 12;
+                                state = 12;
                             }
                             else if (character == '<')
                             {
-                                estado = 6;
+                                state = 6;
                             }
                             else if (character == '>')
                             {
-                                estado = 9;
+                                state = 9;
                             }
                             else if (character == '=')
                             {
-                                estado = 2;
+                                state = 2;
                             }
                             else if (character == '!')
                             {
-                                estado = 4;
+                                state = 4;
                             }
                             else if (character == '/')
                             {
-                                estado = 16;
+                                state = 16;
                             }
                             else if (character == '*')
                             {
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_MUL, "*", line, column)));
+                                state = 18;
+                                return new TokenResult(true, "" , new Token(Tag.OP_MUL, "*", line, column));
                             }
                             else if (character == '+')
                             {
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_AD, "+", line, column)));
+                                state = 19;
+                                return new TokenResult(true, "" , new Token(Tag.OP_AD, "+", line, column));
                             }
                             else if (character == '-')
                             {
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_MIN, "-", line, column)));
+                                state = 20;
+                                return new TokenResult(true, "" , new Token(Tag.OP_MIN, "-", line, column));
                             }
                             else if (character == ';')
                             {
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.SMB_SEM, ";", line, column)));
+                                state = 21;
+                                return new TokenResult(true, "" , new Token(Tag.SMB_SEM, ";", line, column));
                             }
                             else if (character == '(')
                             {
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.SMB_OPA, "(", line, column)));
+                                state =22;
+                                return new TokenResult(true, "" , new Token(Tag.SMB_OPA, "(", line, column));
                             }
                             else if (character == ')')
                             {
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.SMB_CPA, ")", line, column)));
+                                state = 23;
+                                return new TokenResult(true, "" , new Token(Tag.SMB_CPA, ")", line, column));
                             }
                             else if (character == '\'')
                             {
-                                estado = 24;
+                                state = 24;
                             }
                             else
                             {
                                 var errorMessage = string.Concat("ERRO => Caractere invalido  '", character.ToString() , "'  na linha " , line , " e coluna " , column);
-                                tokens.Add(new TokenResult(false, errorMessage , null));
-                                return tokens;
+                                return new TokenResult(false, errorMessage , null);
                             }
                         break;
                         case 2:
                             if (character == '=')
-                            { // Estado 3
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_EQ, "==", line, column)));
+                            { // state 3
+                                state = 3;
+                                return new TokenResult(true, "" , new Token(Tag.OP_EQ, "==", line, column));
                             }
                             else
                             {
                                 ReturnColumn();
                                 //retornaPonteiro();
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_ASS, "=", line, column)));
+                                return new TokenResult(true, "" , new Token(Tag.OP_ASS, "=", line, column));
                             }
-                            break;
+                        
                         case 4:
                             if (character == '=')
-                            { // Estado 5
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_NE, "!=", line, column)));
+                            { // state 5
+                                state = 5;
+                                return new TokenResult(true, "" , new Token(Tag.OP_NE, "!=", line, column));
                             }
                             else
                             {
                                 ReturnColumn();
                                 //retornaPonteiro();
                                 var errorMessage = string.Concat("ERRO => Token incompleto para o caractere ! na linha " , line , " e coluna " , column);
-                                tokens.Add(new TokenResult(false, errorMessage , null));
-                                return tokens;
+                                return new TokenResult(false, errorMessage , null);
+
                                 // sinalizaErro("Token incompleto para o caractere ! na linha " + line + " e coluna " + column);
                             }
-                            break;
+                        
                         case 6:
                             if (character == '=')
-                            { // Estado 7
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_LE, "<=", line, column)));
+                            { // state 7
+                                state = 7;
+                                return new TokenResult(true, "" , new Token(Tag.OP_LE, "<=", line, column));
                             }
                             else
-                            { // Estado 8
-                                estado = 1;
+                            { // state 8
+                                state = 8;
                                 ReturnColumn();
                                 //retornaPonteiro();
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_LT, "<", line, column)));
+                                return new TokenResult(true, "" , new Token(Tag.OP_LT, "<", line, column));
                             }
-                            break;
+                        
                         case 9:
                             if (character == '=')
-                            { // Estado 10
-                                estado = 1;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_GE, ">=", line, column)));
+                            { // state 10
+                                state = 10;
+                                return new TokenResult(true, "" , new Token(Tag.OP_GE, ">=", line, column));
                             }
                             else
-                            { // Estado 11
-                                estado = 1;
+                            { // state 11
+                                state = 11;
                                 ReturnColumn();
                                 // retornaPonteiro();
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_GT, ">", line, column)));
+                                return new TokenResult(true, "" , new Token(Tag.OP_GT, ">", line, column));
                             }
-                            break;
+                        
                         case 12:
                             if (Char.IsDigit(character))
                             {
                                 lexema.Append(character);
-                                // Permanece no estado 12
+                                // Permanece no state 12
                             }
                             else if (character == '.')
                             {
                                 lexema.Append(character);
-                                estado = 26;
+                                state = 26;
                             }
                             else
-                            { // Estado 13
-                                estado = 1;
+                            { // state 13
+                                state = 13;
                                 ReturnColumn();
                                 // retornaPonteiro();
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.CON_NUM, lexema.ToString(), line, column)));
+                                return new TokenResult(true, "" , new Token(Tag.CON_NUM, lexema.ToString(), line, column));
                             }
                             break;
                         case 14:
@@ -250,34 +247,34 @@ namespace Trab_Compiladores.AnalisadorLexico
                             if (Char.IsLetterOrDigit(character) || character == '_')
                             {
                                 lexema.Append(character);
-                                // Permanece no estado 14
+                                // Permanece no state 14
                             }
                             else
-                            { // Estado 15
-                                estado = 1;
+                            { // state 15
+                                state = 15;
                                 ReturnColumn();
                                 //retornaPonteiro();
                                 var token = _symbolstTable.FirstOrDefault(a => a.Lexeme.ToUpper() == lexema.ToString()?.ToUpper());
 
                                 if (token == null){
-                                    tokens.Add(new TokenResult(true, "" , new Token(Tag.ID, lexema.ToString(), line, column)));
+                                    return new TokenResult(true, "" , new Token(Tag.ID, lexema.ToString(), line, column));
                                 }
 
                                 else{
-                                    tokens.Add(new TokenResult(true, "" , new Token(token.Tag, token.Lexeme.ToString(), line, column)));
+                                    return new TokenResult(true, "" , new Token(token.Tag, token.Lexeme.ToString(), line, column));
                                 }
                             }
                             break;
                         case 16:
                             if (character == '/')
                             {
-                                estado = 17;
+                                state = 17;
                             }
                             else
                             {
                                 ReturnColumn();
                                 //retornaPonteiro();
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.OP_DIV, lexema.ToString(), line, column)));
+                                return new TokenResult(true, "" , new Token(Tag.OP_DIV, lexema.ToString(), line, column));
                             }
                             break;
                         case 17:
@@ -285,23 +282,22 @@ namespace Trab_Compiladores.AnalisadorLexico
                             {
 
                             }
-                            // Se vier outro, permanece no estado 17
+                            // Se vier outro, permanece no state 17
                             break;
                         case 24:
                             if (character == '\'')
                             {
-                                estado = 25;
-                                tokens.Add(new TokenResult(true, "" , new Token(Tag.CON_CHAR, lexema.ToString(), line, column)));
+                                state = 25;
+                                return new TokenResult(true, "" , new Token(Tag.CON_CHAR, lexema.ToString(), line, column));
                             }
-                            else if (filePosition == file.Length)
+                            else if (filePosition == _file.Length)
                             {
-                                var errorMessage = "String deve ser fechada com => \'  antes do fim de arquivo";
-                                tokens.Add(new TokenResult(false, errorMessage , null));
+                                var errorMessage = "ERRO => String deve ser fechada com => \'  antes do fim de arquivo";
+                                return new TokenResult(false, errorMessage , null);
                                 //sinalizaErro("String deve ser fechada com \" antes do fim de arquivo");
-                                return tokens;
                             }
                             else
-                            { // Se vier outro, permanece no estado 24
+                            { // Se vier outro, permanece no state 24
                                 lexema.Append(character);
                             }
                             break;
@@ -309,13 +305,12 @@ namespace Trab_Compiladores.AnalisadorLexico
                             if (Char.IsDigit(character))
                             {
                                 lexema.Append(character);
-                                estado = 27;
+                                state = 27;
                             }
                             else
                             {
                                 var errorMessage = string.Concat("ERRO => Padrao para double invalido na linha " , line , " coluna " , column);
-                                tokens.Add(new TokenResult(false, errorMessage , null));
-                                return tokens;
+                                return new TokenResult(false, errorMessage , null);
                                 //sinalizaErro("Padrao para double invalido na linha " + line + " coluna " + column);
                             }
                             break;
@@ -336,7 +331,7 @@ namespace Trab_Compiladores.AnalisadorLexico
 
                         if(newLine == true){
 
-                            estado = 1;
+                            state = 1;
                             ReturnColumn();
                         }
 
@@ -348,36 +343,25 @@ namespace Trab_Compiladores.AnalisadorLexico
 
                         }
 
-                        else if(character == '/' && file[filePosition-1] == '/'){
-                            estado = 29;
+                        else if(character == '/' && _file[filePosition-1] == '/'){
+                            state = 29;
                         }
 
                         else if(character == '/'){
-                            estado = 1;
+                            state = 1;
                         }
                         
-                        else if(filePosition == file.Length){
+                        else if(filePosition == _file.Length){
 
                             var errorMessage = "ERRO => O comentário deve terminar com “*/”";
-                            tokens.Add(new TokenResult(false, errorMessage , null));
-                            return tokens;
+                            return new TokenResult(false, errorMessage , null);
                         }
-
-                        break;
-
-                    default:
-
-                        estado = 1;
 
                         break;
                     }
-                
-            }
-
-            return tokens;
-
         }
 
+        }
 
     }
 }

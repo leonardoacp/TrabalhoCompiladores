@@ -5,8 +5,8 @@ namespace Trab_Compiladores.AnalisadorLexico
 {
     public interface IAnalisadorLexico
     {
-        List<string> GetTokens(string path);
-        List<TokenResult> TokenValidation(string file);
+        IEnumerable<TokenResult> GetTokens(string path);
+        TokenResult NextToken();
         void ReturnColumn();
     }
 }

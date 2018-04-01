@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{1FA72763-0B32-43B8-AEDA-6866E56D027C}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trab_Compiladores/AnalisadorLexico /AnalisadorLexico.cs">
+    <Files>
+      <File FileName="Trab_Compiladores/Files/OK/Pasc_1.txt" Line="7" Column="4" />
+      <File FileName="Trab_Compiladores/AnalisadorLexico /AnalisadorLexico.cs" Line="24" Column="28" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Trab__Compiladores PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

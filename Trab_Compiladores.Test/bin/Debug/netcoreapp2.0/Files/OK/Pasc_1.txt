@@ -1,12 +1,11 @@
 ﻿if
 var
-if teste
+if
 else
-'program
+'info'
 read
 num
 char
 not
 or
 and
-

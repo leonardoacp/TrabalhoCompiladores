@@ -1,11 +1,12 @@
 ﻿if
-ddasd
-if
+var
+if teste
 else
-'info'
+'program
 read
 num
 char
 not
 or
 and
+

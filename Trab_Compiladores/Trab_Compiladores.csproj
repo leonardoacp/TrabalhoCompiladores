@@ -8,13 +8,9 @@
   <ItemGroup>
     <Folder Include="AnalisadorLexico \" />
     <Folder Include="Service\" />
-    <Folder Include="Ninject\" />
     <Folder Include="Files\" />
     <Folder Include="Files\OK\" />
     <Folder Include="Files\ERROR\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.3.4" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Files\OK\Pasc_1.txt" />
