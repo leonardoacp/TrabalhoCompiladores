@@ -3,143 +3,164 @@
 	<automaton>
 		<!--The list of states.-->
 		<state id="0" name="q5">
-			<x>612.0</x>
-			<y>75.0</y>
+			<x>603.0</x>
+			<y>97.0</y>
 			<final/>
 		</state>
 		<state id="1" name="q1">
-			<x>28.0</x>
-			<y>32.0</y>
+			<x>19.0</x>
+			<y>54.0</y>
 			<initial/>
 		</state>
 		<state id="2" name="q2">
-			<x>436.0</x>
-			<y>22.0</y>
+			<x>427.0</x>
+			<y>44.0</y>
 		</state>
 		<state id="3" name="q3">
-			<x>615.0</x>
-			<y>24.0</y>
+			<x>606.0</x>
+			<y>46.0</y>
 			<final/>
 		</state>
 		<state id="4" name="q4">
-			<x>431.0</x>
-			<y>74.0</y>
+			<x>422.0</x>
+			<y>96.0</y>
 		</state>
 		<state id="5" name="q6">
-			<x>423.0</x>
-			<y>127.0</y>
+			<x>414.0</x>
+			<y>149.0</y>
 		</state>
 		<state id="6" name="q7">
-			<x>614.0</x>
-			<y>131.0</y>
+			<x>605.0</x>
+			<y>153.0</y>
 			<final/>
 		</state>
 		<state id="7" name="q8*">
-			<x>612.0</x>
-			<y>182.0</y>
+			<x>603.0</x>
+			<y>204.0</y>
 			<final/>
 		</state>
 		<state id="8" name="q9">
-			<x>420.0</x>
-			<y>187.0</y>
+			<x>411.0</x>
+			<y>209.0</y>
 			<final/>
 		</state>
 		<state id="9" name="q11*">
-			<x>610.0</x>
-			<y>291.0</y>
+			<x>601.0</x>
+			<y>313.0</y>
 			<final/>
 		</state>
 		<state id="10" name="q10">
-			<x>610.0</x>
-			<y>238.0</y>
+			<x>601.0</x>
+			<y>260.0</y>
 			<final/>
 		</state>
 		<state id="11" name="q12">
-			<x>410.0</x>
-			<y>733.0</y>
+			<x>405.0</x>
+			<y>746.0</y>
 		</state>
 		<state id="12" name="q13*">
-			<x>580.0</x>
-			<y>735.0</y>
-			<final/>
+			<x>563.0</x>
+			<y>748.0</y>
 		</state>
 		<state id="13" name="q14">
-			<x>407.0</x>
-			<y>818.0</y>
+			<x>401.0</x>
+			<y>853.0</y>
 		</state>
 		<state id="14" name="q15*">
-			<x>577.0</x>
-			<y>818.0</y>
+			<x>566.0</x>
+			<y>850.0</y>
 			<final/>
 		</state>
 		<state id="15" name="q16">
-			<x>401.0</x>
-			<y>887.0</y>
+			<x>398.0</x>
+			<y>923.0</y>
 		</state>
 		<state id="16" name="q17">
-			<x>487.0</x>
-			<y>887.0</y>
+			<x>498.0</x>
+			<y>923.0</y>
 		</state>
 		<state id="17" name="q18">
-			<x>575.0</x>
-			<y>887.0</y>
+			<x>589.0</x>
+			<y>922.0</y>
 		</state>
 		<state id="18" name="q18">
-			<x>418.0</x>
-			<y>251.0</y>
+			<x>409.0</x>
+			<y>273.0</y>
 			<final/>
 		</state>
 		<state id="19" name="q19">
-			<x>419.0</x>
-			<y>310.0</y>
+			<x>410.0</x>
+			<y>332.0</y>
 			<final/>
 		</state>
 		<state id="20" name="q20">
-			<x>418.0</x>
-			<y>370.0</y>
+			<x>409.0</x>
+			<y>392.0</y>
 			<final/>
 		</state>
 		<state id="21" name="q21">
-			<x>420.0</x>
-			<y>431.0</y>
+			<x>411.0</x>
+			<y>453.0</y>
 			<final/>
 		</state>
 		<state id="22" name="q22">
-			<x>417.0</x>
-			<y>490.0</y>
+			<x>408.0</x>
+			<y>512.0</y>
 			<final/>
 		</state>
 		<state id="23" name="q23">
-			<x>414.0</x>
-			<y>548.0</y>
+			<x>405.0</x>
+			<y>570.0</y>
 			<final/>
 		</state>
 		<state id="24" name="q24">
-			<x>417.0</x>
-			<y>639.0</y>
+			<x>408.0</x>
+			<y>661.0</y>
 		</state>
 		<state id="25" name="q25">
-			<x>577.0</x>
-			<y>640.0</y>
+			<x>568.0</x>
+			<y>662.0</y>
 			<final/>
+		</state>
+		<state id="26" name="q19">
+			<x>552.0</x>
+			<y>1027.0</y>
 		</state>
 		<!--The list of transitions.-->
 		<transition>
-			<from>1</from>
-			<to>8</to>
-			<controlx>152</controlx>
-			<controly>95</controly>
-			<read>&gt;</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>20</to>
-			<read>-</read>
-		</transition>
-		<transition>
-			<from>15</from>
+			<from>17</from>
 			<to>16</to>
-			<read>*</read>
+			<read>outro</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>7</to>
+			<read>outro</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>5</to>
+			<read>&lt;</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read>=</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>23</to>
+			<read>)</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>=</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>!</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -147,36 +168,41 @@
 			<read>(</read>
 		</transition>
 		<transition>
-			<from>11</from>
-			<to>12</to>
-			<read>outro</read>
-		</transition>
-		<transition>
-			<from>4</from>
-			<to>0</to>
-			<read>=</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>15</to>
-			<controlx>87</controlx>
-			<controly>312</controly>
-			<read>/</read>
-		</transition>
-		<transition>
 			<from>1</from>
 			<to>18</to>
 			<read>*</read>
 		</transition>
 		<transition>
-			<from>16</from>
-			<to>17</to>
-			<read>*</read>
+			<from>1</from>
+			<to>20</to>
+			<read>-</read>
 		</transition>
 		<transition>
-			<from>5</from>
-			<to>7</to>
+			<from>11</from>
+			<to>12</to>
 			<read>outro</read>
+		</transition>
+		<transition>
+			<from>17</from>
+			<to>1</to>
+			<controlx>1491</controlx>
+			<controly>-207</controly>
+			<read>   /</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>24</to>
+			<read>'</read>
+		</transition>
+		<transition>
+			<from>15</from>
+			<to>26</to>
+			<read>/</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>=</read>
 		</transition>
 		<transition>
 			<from>16</from>
@@ -191,19 +217,68 @@
 			<read>outro</read>
 		</transition>
 		<transition>
-			<from>13</from>
-			<to>14</to>
+			<from>26</from>
+			<to>26</to>
 			<read>outro</read>
 		</transition>
 		<transition>
-			<from>1</from>
-			<to>24</to>
+			<from>24</from>
+			<to>25</to>
 			<read>'</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>10</to>
+			<read>=</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>8</to>
+			<controlx>152</controlx>
+			<controly>95</controly>
+			<read>&gt;</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>0</to>
+			<read>=</read>
 		</transition>
 		<transition>
 			<from>1</from>
 			<to>19</to>
 			<read>+</read>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>13</to>
+			<controlx>427</controlx>
+			<controly>727</controly>
+			<read>letra/digito</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>9</to>
+			<read>outro</read>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>14</to>
+			<read>outro</read>
+		</transition>
+		<transition>
+			<from>16</from>
+			<to>17</to>
+			<read>*</read>
+		</transition>
+		<transition>
+			<from>17</from>
+			<to>1</to>
+			<read> </read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>21</to>
+			<read>;</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -213,68 +288,35 @@
 			<read>digito</read>
 		</transition>
 		<transition>
-			<from>24</from>
-			<to>25</to>
-			<read>'</read>
-		</transition>
-		<transition>
 			<from>1</from>
-			<to>5</to>
-			<read>&lt;</read>
+			<to>15</to>
+			<controlx>87</controlx>
+			<controly>312</controly>
+			<read>/</read>
 		</transition>
 		<transition>
-			<from>1</from>
-			<to>23</to>
-			<read>)</read>
+			<from>26</from>
+			<to>1</to>
+			<controlx>-58</controlx>
+			<controly>872</controly>
+			<read>nova linha</read>
 		</transition>
 		<transition>
-			<from>13</from>
-			<to>13</to>
-			<controlx>398</controlx>
-			<controly>715</controly>
-			<read>letra/digito</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>2</to>
-			<read>=</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>21</to>
-			<read>;</read>
-		</transition>
-		<transition>
-			<from>8</from>
-			<to>10</to>
-			<read>=</read>
-		</transition>
-		<transition>
-			<from>8</from>
-			<to>9</to>
-			<read>outro</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>4</to>
-			<read>!</read>
-		</transition>
-		<transition>
-			<from>5</from>
-			<to>6</to>
-			<read>=</read>
-		</transition>
-		<transition>
-			<from>2</from>
-			<to>3</to>
-			<read>=</read>
+			<from>15</from>
+			<to>16</to>
+			<read>*</read>
 		</transition>
 		<transition>
 			<from>1</from>
 			<to>13</to>
-			<controlx>112</controlx>
-			<controly>278</controly>
+			<controlx>178</controlx>
+			<controly>410</controly>
 			<read>letra</read>
+		</transition>
+		<transition>
+			<from>17</from>
+			<to>1</to>
+			<read>/</read>
 		</transition>
 		<transition>
 			<from>11</from>

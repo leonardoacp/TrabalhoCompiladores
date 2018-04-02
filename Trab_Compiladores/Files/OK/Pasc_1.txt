@@ -1,8 +1,9 @@
 ﻿if
-/*else*/
-if teste while
+while
+read
+if
 else
-'program'
+//'program'
 read
 num
 

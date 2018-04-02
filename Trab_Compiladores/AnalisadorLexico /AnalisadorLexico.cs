@@ -51,6 +51,12 @@ namespace Trab_Compiladores.AnalisadorLexico
 
         while(true){
 
+        if (character == '\n')
+        {
+            column = 1;
+            line++;
+        }
+
             character = filePosition > _file.Length? ' ': _file[filePosition];
             filePosition++;
             column++;
@@ -64,14 +70,7 @@ namespace Trab_Compiladores.AnalisadorLexico
                             
                             if (character == ' ' || character == '\t' || character == '\n' || character == '\r')
                             {
-                                // Permance no state = 1
-                                if (character == '\n')
-                                {
-                                    column = 1;
-                                    line++;
-
-                                }
-                                else if (character == '\t')
+                                if (character == '\t')
                                 {
 
                                 }
@@ -274,7 +273,7 @@ namespace Trab_Compiladores.AnalisadorLexico
                             
                             var errorMessage = "ERRO => O comentário deve terminar com “*/”";
                             return new TokenResult(false, errorMessage , null);
-                            
+
                             }
                             
                             // Se vier outro, permanece no state 17
@@ -284,6 +283,7 @@ namespace Trab_Compiladores.AnalisadorLexico
                         if(character == '/'){
 
                             state = 1;
+                            
                         }
                         
                         else if(filePosition == _file.Length){
@@ -304,9 +304,7 @@ namespace Trab_Compiladores.AnalisadorLexico
 
                             if (character == '\n') {
 
-                            state = 1;
-                            ReturnColumn();
-                            
+                                state = 1;
                             } 
 
                         break;    
