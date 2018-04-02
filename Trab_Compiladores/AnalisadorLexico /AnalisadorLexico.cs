@@ -9,10 +9,9 @@ namespace Trab_Compiladores.AnalisadorLexico
         private readonly Service.FileService.IFileService _fileService;
         private readonly Service.TokenService.ITokenService _tokenService;
         private readonly List<Token> _symbolstTable;
-        private readonly TS _ts;
-        public  int column;
-        public  int line;
-        public int filePosition;
+        public  int column = 1;
+        public  int line = 1;
+        public int filePosition = 0;
         public string _file;
         public  int previousLine = 1;
         public bool newLine = false;
@@ -21,11 +20,7 @@ namespace Trab_Compiladores.AnalisadorLexico
 
             _fileService = fileService;                                 
             _tokenService = tokenService;
-            _ts = new TS();
-            _symbolstTable = _ts.SymbolstTable();
-            column = 1;
-            line = 1;
-            filePosition = 0;
+            _symbolstTable = new TS().SymbolstTable();
         }
 
         public IEnumerable<TokenResult> GetTokens(string path){
@@ -57,20 +52,8 @@ namespace Trab_Compiladores.AnalisadorLexico
         while(true){
 
             character = filePosition > _file.Length? ' ': _file[filePosition];
-            line = _file.Take(filePosition).Count(c => c == '\n') + 1;
             filePosition++;
-
-            if(previousLine != line){
-
-                column = 1;
-                previousLine = line;
-                newLine = true;
-            }
-            else{
-                newLine = false;
-            }
-            
-            column ++;
+            column++;
 
                     switch (state)
                     {
@@ -79,21 +62,18 @@ namespace Trab_Compiladores.AnalisadorLexico
                                 return new TokenResult(true, "" , new Token(Tag.EOF, "EOF", line, column));
                             }
                             
-                            if (character == ' ' || character == '\t' || character == '\n' || character == '\r' || character == '/')
+                            if (character == ' ' || character == '\t' || character == '\n' || character == '\r')
                             {
                                 // Permance no state = 1
                                 if (character == '\n')
                                 {
+                                    column = 1;
+                                    line++;
 
                                 }
                                 else if (character == '\t')
                                 {
 
-                                }
-
-                                else if(character == '/'){
-
-                                    state = 28;
                                 }
                             }
                             else if (Char.IsLetter(character))
@@ -266,7 +246,12 @@ namespace Trab_Compiladores.AnalisadorLexico
                             }
                             break;
                         case 16:
-                            if (character == '/')
+
+                            if (character == '/') {
+                                state = 19;
+                            }
+                            
+                            else if (character == '*')
                             {
                                 state = 17;
                             }
@@ -274,16 +259,58 @@ namespace Trab_Compiladores.AnalisadorLexico
                             {
                                 ReturnColumn();
                                 //retornaPonteiro();
-                                return new TokenResult(true, "" , new Token(Tag.OP_DIV, lexema.ToString(), line, column));
+                                return new TokenResult(true, "" , new Token(Tag.OP_DIV, "/", line, column));
                             }
                             break;
-                        case 17:
-                            if (character == '\n')
-                            {
 
+                        case 17:
+
+                            if (character == '*')
+                            {
+                                state = 18;
                             }
+
+                            else if(filePosition == _file.Length){
+                            
+                            var errorMessage = "ERRO => O comentário deve terminar com “*/”";
+                            return new TokenResult(false, errorMessage , null);
+                            
+                            }
+                            
                             // Se vier outro, permanece no state 17
                             break;
+
+                        case 18:
+                        if(character == '/'){
+
+                            state = 1;
+                        }
+                        
+                        else if(filePosition == _file.Length){
+                            
+                            var errorMessage = "ERRO => O comentário deve terminar com “*/”";
+                            return new TokenResult(false, errorMessage , null);
+                        }
+
+                        else{
+
+                            state = 17;
+                        }
+
+                        break;   
+
+
+                        case 19:
+
+                            if (character == '\n') {
+
+                            state = 1;
+                            ReturnColumn();
+                            
+                            } 
+
+                        break;    
+                    
                         case 24:
                             if (character == '\'')
                             {
@@ -327,37 +354,6 @@ namespace Trab_Compiladores.AnalisadorLexico
                             }
                             break;
 
-                        case 29:
-
-                        if(newLine == true){
-
-                            state = 1;
-                            ReturnColumn();
-                        }
-
-                        break;
-
-                        case 28:
-
-                        if(character == '*'){
-
-                        }
-
-                        else if(character == '/' && _file[filePosition-1] == '/'){
-                            state = 29;
-                        }
-
-                        else if(character == '/'){
-                            state = 1;
-                        }
-                        
-                        else if(filePosition == _file.Length){
-
-                            var errorMessage = "ERRO => O comentário deve terminar com “*/”";
-                            return new TokenResult(false, errorMessage , null);
-                        }
-
-                        break;
                     }
         }
 

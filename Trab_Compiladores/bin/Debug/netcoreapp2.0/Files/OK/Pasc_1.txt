@@ -1,12 +1,8 @@
 ﻿if
-var
-if teste
+/*else*/
+if teste while
 else
-'program
+'program'
 read
 num
-char
-not
-or
-and
 
