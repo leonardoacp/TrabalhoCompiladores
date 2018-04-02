@@ -9,40 +9,6 @@
     <Folder Include="AnalisadorLexico \" />
     <Folder Include="Service\" />
     <Folder Include="Files\" />
-    <Folder Include="Files\OK\" />
-    <Folder Include="Files\ERROR\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Files\OK\Pasc_1.txt" />
-    <None Remove="Files\ERROR\Pasc_1.txt" />
-    <None Remove="Files\ERROR\Pasc_2.txt" />
-    <None Remove="Files\ERROR\pasc_3.txt" />
-    <None Remove="Files\OK\Pasc_2.txt" />
-    <None Remove="Files\OK\pasc_3.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Files\OK\Pasc_1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Files\OK\Pasc_1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\ERROR\Pasc_1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\ERROR\Pasc_2.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\ERROR\pasc_3.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\OK\Pasc_2.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\OK\pasc_3.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+
 </Project>

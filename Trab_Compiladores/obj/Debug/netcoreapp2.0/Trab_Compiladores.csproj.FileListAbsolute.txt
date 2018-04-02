@@ -15,12 +15,6 @@
 /Users/leo/Documents/Trab_Compiladores/Trab_Compiladores/obj/Debug/netcoreapp2.0/Trab_Compiladores.dll
 /Users/leo/Documents/Trab_Compiladores/Trab_Compiladores/obj/Debug/netcoreapp2.0/Trab_Compiladores.pdb
 /Users/leo/Documents/Trab_Compiladores/Trab_Compiladores/obj/Debug/netcoreapp2.0/Trab_Compiladores.csprojResolveAssemblyReference.cache
-/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Files/OK/Pasc_1.txt
-/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Files/ERROR/Pasc_1.txt
-/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Files/ERROR/Pasc_2.txt
-/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Files/ERROR/pasc_3.txt
-/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Files/OK/Pasc_2.txt
-/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Files/OK/pasc_3.txt
 /Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Trab_Compiladores.deps.json
 /Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Trab_Compiladores.runtimeconfig.json
 /Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/bin/Debug/netcoreapp2.0/Trab_Compiladores.runtimeconfig.dev.json
@@ -31,4 +25,3 @@
 /Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/obj/Debug/netcoreapp2.0/Trab_Compiladores.AssemblyInfo.cs
 /Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/obj/Debug/netcoreapp2.0/Trab_Compiladores.dll
 /Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/obj/Debug/netcoreapp2.0/Trab_Compiladores.pdb
-/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/obj/Debug/netcoreapp2.0/Trab_Compiladores.csprojResolveAssemblyReference.cache

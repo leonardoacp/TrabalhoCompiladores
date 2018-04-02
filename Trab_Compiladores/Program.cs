@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Trab_Compiladores.Service;
 
@@ -14,16 +15,25 @@ namespace Trab_Compiladores
             var fileService = new Service.FileService.FileService();
             var tokenService = new Service.TokenService.TokenService();
             var analisadorLexico = new AnalisadorLexico.AnalisadorLexico(fileService,tokenService);
-            var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(location), "Files/OK/pasc_1.txt");
+            var filesDirectory = string.Concat( System.IO.Directory.GetCurrentDirectory(),"/Files/");
 
-            var tokens = analisadorLexico.GetTokens(path).ToList();
-            var tokensFormatted = tokenService.FormatTokenString(tokens);
+            var directory = new DirectoryInfo(filesDirectory);
+            var Files = directory.GetFiles("*.txt").OrderBy(a => a.Name);
 
-
-            foreach (var item in tokensFormatted)
+            foreach(FileInfo file in Files) 
             {
-                Console.WriteLine(item);
+                var tokens = analisadorLexico.GetTokens(file.FullName).ToList();
+                var tokensFormatted = tokenService.FormatTokenString(tokens);
+
+                Console.WriteLine("");
+                Console.WriteLine("=====> "+file.Name);
+                Console.WriteLine("");
+
+
+                foreach (var item in tokensFormatted)
+                {
+                    Console.WriteLine(item);
+                }
             }
 
             Console.ReadLine();

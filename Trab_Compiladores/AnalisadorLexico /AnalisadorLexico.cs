@@ -13,18 +13,21 @@ namespace Trab_Compiladores.AnalisadorLexico
         public  int line = 1;
         public int filePosition = 0;
         public string _file;
-        public  int previousLine = 1;
-        public bool newLine = false;
         
         public AnalisadorLexico(Service.FileService.IFileService fileService,Service.TokenService.ITokenService tokenService ){
 
             _fileService = fileService;                                 
             _tokenService = tokenService;
             _symbolstTable = new TS().SymbolstTable();
+
         }
 
         public IEnumerable<TokenResult> GetTokens(string path){
 
+            column = 1;
+            line = 1;
+            filePosition = 0;
+            
             _file = _fileService.ReadAllText(path);
             TokenResult tokenResult;
         

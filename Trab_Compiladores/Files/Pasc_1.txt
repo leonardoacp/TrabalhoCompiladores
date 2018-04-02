@@ -1,9 +1,10 @@
 ﻿if
 while
 read
-if
+/*if
 else
-//'program'
+//'program'*/
 read
+var
 num
 
