@@ -5,6 +5,6 @@ read
 else
 //'program'*/
 'read'
-"var
+"var"
 num
 

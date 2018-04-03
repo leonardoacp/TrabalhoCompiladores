@@ -59,7 +59,7 @@
 			<y>910.0</y>
 		</state>
 		<state id="12" name="q13*">
-			<x>564.0</x>
+			<x>565.0</x>
 			<y>912.0</y>
 		</state>
 		<state id="13" name="q14">
@@ -118,8 +118,8 @@
 			<y>825.0</y>
 		</state>
 		<state id="25" name="q25">
-			<x>569.0</x>
-			<y>826.0</y>
+			<x>566.0</x>
+			<y>819.0</y>
 			<final/>
 		</state>
 		<state id="26" name="q19">
@@ -131,8 +131,8 @@
 			<y>673.0</y>
 		</state>
 		<state id="28" name="q25">
-			<x>563.0</x>
-			<y>668.0</y>
+			<x>577.0</x>
+			<y>672.0</y>
 			<final/>
 		</state>
 		<!--The list of transitions.-->

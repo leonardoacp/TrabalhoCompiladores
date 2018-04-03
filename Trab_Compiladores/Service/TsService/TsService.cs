@@ -7,11 +7,9 @@ namespace Trab_Compiladores.Service.TsService
 {
     public class TsService: ITsService
     {
-        public List<Token> SymbolstTable()
-        {
-            return new List<Token>{
+        public HashSet<Token>  SymbolstTable(){
 
-                //Palavras-chave
+            var tokens = new Token[] {
                 new Token(Tag.KW, "program", 0, 0 ),
                 new Token(Tag.KW, "if", 0, 0 ),
                 new Token(Tag.KW, "else", 0, 0 ),
@@ -23,8 +21,9 @@ namespace Trab_Compiladores.Service.TsService
                 new Token(Tag.KW, "not", 0, 0 ),
                 new Token(Tag.KW, "or", 0, 0 ),
                 new Token(Tag.KW, "and", 0, 0 ),
-
             };
+            
+            return new HashSet<Token>(tokens);
         }
     }
 }
