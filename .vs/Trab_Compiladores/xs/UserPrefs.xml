@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{1FA72763-0B32-43B8-AEDA-6866E56D027C}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Trab_Compiladores/AnalisadorLexico /AnalisadorLexico.cs">
     <Files>
-      <File FileName="Trab_Compiladores/AnalisadorLexico /AnalisadorLexico.cs" Line="68" Column="23" />
-      <File FileName="Trab_Compiladores/Files/OK/Pasc_1.txt" Line="7" Column="4" />
+      <File FileName="Trab_Compiladores/AnalisadorLexico /AnalisadorLexico.cs" Line="244" Column="51" />
+      <File FileName="Trab_Compiladores.Test/Tests/AnalisadorLexicoTest.cs" Line="1" Column="1" />
+      <File FileName="Trab_Compiladores/Service/TokenService/TokenService.cs" Line="1" Column="1" />
+      <File FileName="Trab_Compiladores/Program.cs" Line="1" Column="1" />
+      <File FileName="Trab_Compiladores/Service/TsService/TsService.cs" Line="1" Column="1" />
+      <File FileName="Trab_Compiladores/Service/TokenService/ITokenService.cs" Line="8" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/leo/Documents/git/TrabalhoCompiladores/Trab_Compiladores/AnalisadorLexico /AnalisadorLexico.cs" relfile="Trab_Compiladores/AnalisadorLexico /AnalisadorLexico.cs" line="71" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

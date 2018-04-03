@@ -13,8 +13,9 @@ namespace Trab_Compiladores
         static void Main()
         {
             var fileService = new Service.FileService.FileService();
+            var tsService = new Service.TsService.TsService();
             var tokenService = new Service.TokenService.TokenService();
-            var analisadorLexico = new AnalisadorLexico.AnalisadorLexico(fileService,tokenService);
+            var analisadorLexico = new AnalisadorLexico.AnalisadorLexico(tsService,fileService);
             var filesDirectory = string.Concat( System.IO.Directory.GetCurrentDirectory(),"/Files/");
 
             var directory = new DirectoryInfo(filesDirectory);

@@ -7,19 +7,16 @@ namespace Trab_Compiladores.AnalisadorLexico
     public class AnalisadorLexico : IAnalisadorLexico
     {
         private readonly Service.FileService.IFileService _fileService;
-        private readonly Service.TokenService.ITokenService _tokenService;
-        private readonly List<Token> _symbolstTable;
+        private readonly Service.TsService.ITsService _tsService;
         public  int column = 1;
         public  int line = 1;
         public int filePosition = 0;
         public string _file;
         
-        public AnalisadorLexico(Service.FileService.IFileService fileService,Service.TokenService.ITokenService tokenService ){
+        public AnalisadorLexico(Service.TsService.ITsService tsService,Service.FileService.IFileService fileService){
 
-            _fileService = fileService;                                 
-            _tokenService = tokenService;
-            _symbolstTable = new TS().SymbolstTable();
-
+            _fileService = fileService;
+            _tsService = tsService;
         }
 
         public IEnumerable<TokenResult> GetTokens(string path){
@@ -36,6 +33,7 @@ namespace Trab_Compiladores.AnalisadorLexico
                 yield return tokenResult;
             } while(tokenResult?.Token?.Tag != Tag.EOF && tokenResult.Status == true);
         }
+
 
 
         public void ReturnColumn(){
@@ -142,6 +140,10 @@ namespace Trab_Compiladores.AnalisadorLexico
                             {
                                 state = 24;
                             }
+                            else if (character == '"')
+                            {
+                                state = 28;
+                            }
                             else
                             {
                                 var errorMessage = string.Concat("ERRO => Caractere invalido  '", character.ToString() , "'  na linha " , line , " e coluna " , column);
@@ -236,7 +238,7 @@ namespace Trab_Compiladores.AnalisadorLexico
                                 state = 15;
                                 ReturnColumn();
                                 //retornaPonteiro();
-                                var token = _symbolstTable.FirstOrDefault(a => a.Lexeme.ToUpper() == lexema.ToString()?.ToUpper());
+                            var token = _tsService.SymbolstTable().FirstOrDefault(a => a.Lexeme.ToUpper() == lexema.ToString()?.ToUpper());
 
                                 if (token == null){
                                     return new TokenResult(true, "" , new Token(Tag.ID, lexema.ToString(), line, column));
@@ -354,6 +356,24 @@ namespace Trab_Compiladores.AnalisadorLexico
                                 // return new Token(Tag.DOUBLE, lexema.ToString(), line, column);
                             }
                             break;
+
+                        case 28:
+                            if (character == '"')
+                            {
+                                state = 25;
+                                return new TokenResult(true, "" , new Token(Tag.LIT, lexema.ToString(), line, column));
+                            }
+                            else if (filePosition == _file.Length)
+                            {
+                                var errorMessage = "ERRO => String deve ser fechada com => \" antes do fim de arquivo";
+                                return new TokenResult(false, errorMessage , null);
+                                //sinalizaErro("String deve ser fechada com \" antes do fim de arquivo");
+                            }
+                            else
+                            { // Se vier outro, permanece no state 22
+                                lexema.Append(character);
+                            }
+                        break;
 
                     }
         }

@@ -1,0 +1,10 @@
+﻿if
+while
+read
+/*if
+else
+//'program'*/
+'read'
+"var
+num
+

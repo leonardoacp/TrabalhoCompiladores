@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Moq;
+using System;
+using System.IO;
 
 namespace Trab_Compiladores.Test.Tests
 {
@@ -16,8 +19,8 @@ namespace Trab_Compiladores.Test.Tests
         {
             //Arrange
             var fileService = new Service.FileService.FileService();
-            var tokenService = new Service.TokenService.TokenService();
-            var analisadorLexico = new Trab_Compiladores.AnalisadorLexico.AnalisadorLexico(fileService,tokenService);
+            var tsService = new Service.TsService.TsService();
+            var analisadorLexico = new Trab_Compiladores.AnalisadorLexico.AnalisadorLexico(tsService,fileService);
             analisadorLexico.filePosition = filePosition;
             analisadorLexico.column = column;
 
@@ -74,17 +77,35 @@ namespace Trab_Compiladores.Test.Tests
                 Assert.Equal(tokenFormatted[item.index],item.value.Message);
             }
         }
-
+ 
         [Fact]
         public void TokensShouldReturn(){
 
-            var fileService = new Service.FileService.FileService();
-            var tokenService = new Service.TokenService.TokenService();
-            var analisadorLexico = new Trab_Compiladores.AnalisadorLexico.AnalisadorLexico(fileService,tokenService);
+            //Arrange
+            var tsService = new Service.TsService.TsService();
+
+            var fileServiceObject = new Mock<Service.FileService.IFileService>();
+            var tsServiceObject = new Mock<Service.TsService.ITsService>();
+            
+            fileServiceObject.Setup(a => a.ReadAllText("")).Returns("if");
+            tsServiceObject.Setup(a => a.SymbolstTable()).Returns(tsService.SymbolstTable());
+
+            var analisadorLexico = new Trab_Compiladores.AnalisadorLexico.AnalisadorLexico(tsServiceObject.Object ,fileServiceObject.Object);
 
 
 
+            //Act
+            var tokens = analisadorLexico.GetTokens("")?.ToList();
 
+            //Assert
+            foreach(var item in tokens){
+                
+                Console.WriteLine(item?.Token?.Tag.ToString());
+            }
+
+            Assert.True(true);
+    
+            
 
         }
     }

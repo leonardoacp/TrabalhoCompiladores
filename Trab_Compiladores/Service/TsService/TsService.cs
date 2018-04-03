@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Trab_Compiladores;
+using Trab_Compiladores.Service.TsService;
 
-namespace Trab_Compiladores
+namespace Trab_Compiladores.Service.TsService
 {
-    public class TS
+    public class TsService: ITsService
     {
         public List<Token> SymbolstTable()
         {

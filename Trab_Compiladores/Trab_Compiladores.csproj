@@ -9,6 +9,7 @@
     <Folder Include="AnalisadorLexico \" />
     <Folder Include="Service\" />
     <Folder Include="Files\" />
+    <Folder Include="Service\TsService\" />
   </ItemGroup>
 
 </Project>
