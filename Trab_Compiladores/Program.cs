@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Trab_Compiladores.Service;
@@ -36,6 +37,29 @@ namespace Trab_Compiladores
                     Console.WriteLine(item);
                 }
             }
+
+        string[] array1 =
+        {
+            "cat",
+            "dog",
+            "cat",
+            "leopard",
+            "tiger",
+            "cat",
+            "cat"
+        };
+
+
+        // Use HashSet constructor to ensure unique strings.
+        var hash = new HashSet<string>(array1);
+
+
+
+        foreach(var item in tsService.SymbolstTable()){
+            Console.WriteLine(item.Tag.ToString()+" - "+item.Lexeme);
+        }
+
+
 
             Console.ReadLine();
         }
