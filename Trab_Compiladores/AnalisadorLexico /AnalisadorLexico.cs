@@ -116,6 +116,16 @@ namespace Trab_Compiladores.AnalisadorLexico
                                 state = 19;
                                 return new TokenResult(true, "" , new Token(Tag.OP_AD, "+", line, column));
                             }
+                            else if (character == '{')
+                            {
+                                state = 30;
+                                return new TokenResult(true, "" , new Token(Tag.SMB_OBC, "{", line, column));
+                            }
+                            else if (character == '}')
+                            {
+                                state = 31;
+                                return new TokenResult(true, "" , new Token(Tag.SMB_CBC, "}", line, column));
+                            }
                             else if (character == '-')
                             {
                                 state = 20;
@@ -125,6 +135,11 @@ namespace Trab_Compiladores.AnalisadorLexico
                             {
                                 state = 21;
                                 return new TokenResult(true, "" , new Token(Tag.SMB_SEM, ";", line, column));
+                            }
+                            else if (character == ',')
+                            {
+                                state = 32;
+                                return new TokenResult(true, "" , new Token(Tag.SMB_COM, ",", line, column));
                             }
                             else if (character == '(')
                             {

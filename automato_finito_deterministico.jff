@@ -3,136 +3,156 @@
 	<automaton>
 		<!--The list of states.-->
 		<state id="0" name="q5">
-			<x>603.0</x>
-			<y>97.0</y>
+			<x>722.0</x>
+			<y>226.0</y>
 			<final/>
 		</state>
 		<state id="1" name="q1">
-			<x>19.0</x>
-			<y>54.0</y>
+			<x>78.0</x>
+			<y>230.0</y>
 			<initial/>
 		</state>
 		<state id="2" name="q2">
-			<x>427.0</x>
-			<y>44.0</y>
+			<x>558.0</x>
+			<y>176.0</y>
 		</state>
 		<state id="3" name="q3">
-			<x>606.0</x>
-			<y>46.0</y>
+			<x>723.0</x>
+			<y>117.0</y>
 			<final/>
 		</state>
 		<state id="4" name="q4">
-			<x>422.0</x>
-			<y>96.0</y>
+			<x>568.0</x>
+			<y>227.0</y>
 		</state>
 		<state id="5" name="q6">
-			<x>414.0</x>
-			<y>149.0</y>
+			<x>571.0</x>
+			<y>274.0</y>
 		</state>
 		<state id="6" name="q7">
-			<x>605.0</x>
-			<y>153.0</y>
+			<x>721.0</x>
+			<y>277.0</y>
 			<final/>
 		</state>
 		<state id="7" name="q8*">
-			<x>603.0</x>
-			<y>204.0</y>
+			<x>721.0</x>
+			<y>325.0</y>
 			<final/>
 		</state>
 		<state id="8" name="q9">
-			<x>411.0</x>
-			<y>209.0</y>
+			<x>559.0</x>
+			<y>338.0</y>
 			<final/>
 		</state>
 		<state id="9" name="q11*">
-			<x>601.0</x>
-			<y>313.0</y>
+			<x>717.0</x>
+			<y>422.0</y>
 			<final/>
 		</state>
 		<state id="10" name="q10">
-			<x>601.0</x>
-			<y>260.0</y>
+			<x>720.0</x>
+			<y>373.0</y>
 			<final/>
 		</state>
 		<state id="11" name="q12">
-			<x>406.0</x>
-			<y>910.0</y>
+			<x>578.0</x>
+			<y>1158.0</y>
 		</state>
 		<state id="12" name="q13*">
-			<x>565.0</x>
-			<y>912.0</y>
+			<x>711.0</x>
+			<y>1157.0</y>
 		</state>
 		<state id="13" name="q14">
-			<x>402.0</x>
-			<y>1017.0</y>
+			<x>573.0</x>
+			<y>1250.0</y>
 		</state>
 		<state id="14" name="q15*">
-			<x>567.0</x>
-			<y>1014.0</y>
+			<x>705.0</x>
+			<y>1249.0</y>
 			<final/>
 		</state>
 		<state id="15" name="q16">
-			<x>399.0</x>
-			<y>1087.0</y>
+			<x>485.0</x>
+			<y>1266.0</y>
 		</state>
 		<state id="16" name="q17">
-			<x>499.0</x>
-			<y>1087.0</y>
+			<x>696.0</x>
+			<y>1345.0</y>
 		</state>
 		<state id="17" name="q18">
-			<x>590.0</x>
-			<y>1086.0</y>
+			<x>787.0</x>
+			<y>1344.0</y>
 		</state>
 		<state id="18" name="q18">
-			<x>409.0</x>
-			<y>273.0</y>
+			<x>521.0</x>
+			<y>395.0</y>
 			<final/>
 		</state>
 		<state id="19" name="q19">
-			<x>410.0</x>
-			<y>332.0</y>
+			<x>598.0</x>
+			<y>633.0</y>
 			<final/>
 		</state>
 		<state id="20" name="q20">
-			<x>409.0</x>
-			<y>392.0</y>
+			<x>595.0</x>
+			<y>691.0</y>
 			<final/>
 		</state>
 		<state id="21" name="q21">
-			<x>411.0</x>
-			<y>453.0</y>
+			<x>599.0</x>
+			<y>754.0</y>
 			<final/>
 		</state>
 		<state id="22" name="q22">
-			<x>408.0</x>
-			<y>512.0</y>
+			<x>596.0</x>
+			<y>813.0</y>
 			<final/>
 		</state>
 		<state id="23" name="q23">
-			<x>405.0</x>
-			<y>570.0</y>
+			<x>595.0</x>
+			<y>872.0</y>
 			<final/>
 		</state>
 		<state id="24" name="q24">
-			<x>409.0</x>
-			<y>825.0</y>
+			<x>591.0</x>
+			<y>1054.0</y>
 		</state>
 		<state id="25" name="q25">
-			<x>566.0</x>
-			<y>819.0</y>
+			<x>716.0</x>
+			<y>1055.0</y>
 			<final/>
 		</state>
 		<state id="26" name="q19">
-			<x>553.0</x>
-			<y>1191.0</y>
+			<x>379.0</x>
+			<y>1251.0</y>
 		</state>
 		<state id="27" name="q28">
-			<x>405.0</x>
-			<y>673.0</y>
+			<x>600.0</x>
+			<y>970.0</y>
 		</state>
 		<state id="28" name="q25">
-			<x>577.0</x>
-			<y>672.0</y>
+			<x>720.0</x>
+			<y>970.0</y>
+			<final/>
+		</state>
+		<state id="29" name="q">
+			<x>724.0</x>
+			<y>173.0</y>
+			<final/>
+		</state>
+		<state id="30" name="q30">
+			<x>596.0</x>
+			<y>530.0</y>
+			<final/>
+		</state>
+		<state id="31" name="q31">
+			<x>597.0</x>
+			<y>582.0</y>
+			<final/>
+		</state>
+		<state id="32" name="q32">
+			<x>599.0</x>
+			<y>480.0</y>
 			<final/>
 		</state>
 		<!--The list of transitions.-->
@@ -149,9 +169,19 @@
 		<transition>
 			<from>1</from>
 			<to>11</to>
-			<controlx>103</controlx>
-			<controly>286</controly>
+			<controlx>68</controlx>
+			<controly>313</controly>
 			<read>digito</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>32</to>
+			<read>,</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>31</to>
+			<read>}</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -161,8 +191,8 @@
 		<transition>
 			<from>26</from>
 			<to>1</to>
-			<controlx>-91</controlx>
-			<controly>971</controly>
+			<controlx>132</controlx>
+			<controly>699</controly>
 			<read>nova linha</read>
 		</transition>
 		<transition>
@@ -173,8 +203,8 @@
 		<transition>
 			<from>1</from>
 			<to>8</to>
-			<controlx>152</controlx>
-			<controly>95</controly>
+			<controlx>290</controlx>
+			<controly>278</controly>
 			<read>&gt;</read>
 		</transition>
 		<transition>
@@ -185,6 +215,8 @@
 		<transition>
 			<from>13</from>
 			<to>13</to>
+			<controlx>599</controlx>
+			<controly>1177</controly>
 			<read>letra/digito </read>
 		</transition>
 		<transition>
@@ -220,9 +252,16 @@
 		<transition>
 			<from>1</from>
 			<to>13</to>
-			<controlx>139</controlx>
-			<controly>453</controly>
+			<controlx>92</controlx>
+			<controly>473</controly>
 			<read>letra</read>
+		</transition>
+		<transition>
+			<from>17</from>
+			<to>1</to>
+			<controlx>201</controlx>
+			<controly>1733</controly>
+			<read> /</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -242,8 +281,8 @@
 		<transition>
 			<from>24</from>
 			<to>24</to>
-			<controlx>414</controlx>
-			<controly>728</controly>
+			<controlx>592</controlx>
+			<controly>987</controly>
 			<read>outro</read>
 		</transition>
 		<transition>
@@ -267,11 +306,9 @@
 			<read>=</read>
 		</transition>
 		<transition>
-			<from>17</from>
-			<to>1</to>
-			<controlx>1491</controlx>
-			<controly>-207</controly>
-			<read>   /</read>
+			<from>1</from>
+			<to>30</to>
+			<read>{</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -282,6 +319,11 @@
 			<from>1</from>
 			<to>20</to>
 			<read>-</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>29</to>
+			<read>outro</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -326,11 +368,6 @@
 			<read>;</read>
 		</transition>
 		<transition>
-			<from>17</from>
-			<to>1</to>
-			<read> </read>
-		</transition>
-		<transition>
 			<from>16</from>
 			<to>17</to>
 			<read>*</read>
@@ -345,5 +382,115 @@
 			<to>11</to>
 			<read>digito</read>
 		</transition>
+		<note>
+			<text/>
+			<x>1380.0</x>
+			<y>49.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_ASS:”=”&gt; </text>
+			<x>1129.0</x>
+			<y>238.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_NE:”!=”&gt; </text>
+			<x>871.0</x>
+			<y>-25.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_LE:”&lt;=”&gt; </text>
+			<x>1129.0</x>
+			<y>373.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_LT:”&lt;”&gt; </text>
+			<x>1127.0</x>
+			<y>437.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_GE:”&gt;=”&gt; </text>
+			<x>1122.0</x>
+			<y>495.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_GT:”&gt;”&gt; </text>
+			<x>1115.0</x>
+			<y>559.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_MUL:”*”&gt; </text>
+			<x>865.0</x>
+			<y>532.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_AD:”+”&gt; </text>
+			<x>967.0</x>
+			<y>822.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_MIN:”-”&gt; </text>
+			<x>966.0</x>
+			<y>896.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;SMB_SEM:”;”&gt; </text>
+			<x>977.0</x>
+			<y>965.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;SMB_OPA:”(”&gt; </text>
+			<x>961.0</x>
+			<y>1047.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;SMB_CPA:”)”&gt; </text>
+			<x>963.0</x>
+			<y>1128.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;LIT:”PALAVRA”&gt; </text>
+			<x>1143.0</x>
+			<y>1259.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;CON_CHAR:"CON_CHAR"&gt; </text>
+			<x>1133.0</x>
+			<y>1374.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;CON_NUM:”NUMERO”&gt; </text>
+			<x>1123.0</x>
+			<y>1503.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;ID:”LEXEMA”&gt; </text>
+			<x>1103.0</x>
+			<y>1612.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_EQ:”==”&gt; </text>
+			<x>1131.0</x>
+			<y>168.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;SMB_CBC:”}”&gt; </text>
+			<x>967.0</x>
+			<y>763.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;SMB_OBC:”{”&gt; </text>
+			<x>967.0</x>
+			<y>702.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;SMB_COM:”,”&gt; </text>
+			<x>966.0</x>
+			<y>630.0</y>
+		</note>
+		<note>
+			<text>Token: &lt;OP_NE:”!=”&gt; </text>
+			<x>1132.0</x>
+			<y>307.0</y>
+		</note>
 	</automaton>
 </structure>

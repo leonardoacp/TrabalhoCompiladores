@@ -28,7 +28,7 @@ namespace Trab_Compiladores
                 var tokensFormatted = tokenService.FormatTokenString(tokens);
 
                 Console.WriteLine("");
-                Console.WriteLine("=====> "+file.Name);
+                Console.WriteLine(string.Concat("=====> ",file.Name));
                 Console.WriteLine("");
 
 
@@ -37,29 +37,6 @@ namespace Trab_Compiladores
                     Console.WriteLine(item);
                 }
             }
-
-        string[] array1 =
-        {
-            "cat",
-            "dog",
-            "cat",
-            "leopard",
-            "tiger",
-            "cat",
-            "cat"
-        };
-
-
-        // Use HashSet constructor to ensure unique strings.
-        var hash = new HashSet<string>(array1);
-
-
-
-        foreach(var item in tsService.SymbolstTable()){
-            Console.WriteLine(item.Tag.ToString()+" - "+item.Lexeme);
-        }
-
-
 
             Console.ReadLine();
         }
