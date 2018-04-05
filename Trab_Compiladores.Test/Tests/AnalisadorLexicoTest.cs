@@ -77,9 +77,39 @@ namespace Trab_Compiladores.Test.Tests
                 Assert.Equal(tokenFormatted[item.index],item.value.Message);
             }
         }
- 
-        [Fact]
-        public void TokensShouldReturn(){
+
+        [Theory]
+        [InlineData("==","OP_EQ")]
+        [InlineData("!=","OP_NE")]
+        [InlineData(">","OP_GT" )]
+        [InlineData("<","OP_LT")]
+        [InlineData(">=","OP_GE")]
+        [InlineData("<=","OP_LE" )]
+        [InlineData("+","OP_AD")]
+        [InlineData("-","OP_MIN" )]
+        [InlineData("*","OP_MUL" )]
+        [InlineData("/","OP_DIV" )]
+        [InlineData("=","OP_ASS")]
+        [InlineData("{","SMB_OBC")]
+        [InlineData("}","SMB_CBC")]
+        [InlineData("(","SMB_OPA")]
+        [InlineData(")","SMB_CPA")]
+        [InlineData(",","SMB_COM")]
+        [InlineData(";","SMB_SEM")]
+        [InlineData("program","KW")]
+        [InlineData("if","KW")]
+        [InlineData("else","KW")]
+        [InlineData("while","KW")]
+        [InlineData("write","KW")]
+        [InlineData("read","KW")]
+        [InlineData("num","KW")]
+        [InlineData("char","KW")]
+        [InlineData("not","KW")]
+        [InlineData("or","KW")]
+        [InlineData("info","ID")]
+        [InlineData("'teste'","CON_CHAR")]
+        [InlineData(@"""info""","LIT")]
+        public void OneTokenShouldReturnTheCorrectLexemeAndTag(string lexeme, string tag){
 
             //Arrange
             var tsService = new Service.TsService.TsService();
@@ -87,25 +117,19 @@ namespace Trab_Compiladores.Test.Tests
             var fileServiceObject = new Mock<Service.FileService.IFileService>();
             var tsServiceObject = new Mock<Service.TsService.ITsService>();
             
-            fileServiceObject.Setup(a => a.ReadAllText("")).Returns("if");
+            fileServiceObject.Setup(a => a.ReadAllText("")).Returns(lexeme);
             tsServiceObject.Setup(a => a.SymbolstTable()).Returns(tsService.SymbolstTable());
 
             var analisadorLexico = new Trab_Compiladores.AnalisadorLexico.AnalisadorLexico(tsServiceObject.Object ,fileServiceObject.Object);
 
 
-
             //Act
-            var tokens = analisadorLexico.GetTokens("")?.ToList();
+            var firstToken = analisadorLexico.GetTokens("")?.FirstOrDefault();
+            lexeme = lexeme.Replace("\"", "").Replace("'","");
 
             //Assert
-            foreach(var item in tokens){
-                
-                Console.WriteLine(item?.Token?.Tag.ToString());
-            }
-
-            Assert.True(true);
-    
-            
+            Assert.True(firstToken.Token.Lexeme == lexeme);
+            Assert.True(firstToken.Token.Tag.ToString() == tag);            
 
         }
     }

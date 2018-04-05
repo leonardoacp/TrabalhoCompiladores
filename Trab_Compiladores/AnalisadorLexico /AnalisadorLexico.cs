@@ -10,7 +10,7 @@ namespace Trab_Compiladores.AnalisadorLexico
         private readonly Service.TsService.ITsService _tsService;
         public  int column = 1;
         public  int line = 1;
-        public int filePosition = 0;
+        public int filePosition = -1;
         public string _file;
         
         public AnalisadorLexico(Service.TsService.ITsService tsService,Service.FileService.IFileService fileService){
@@ -23,7 +23,7 @@ namespace Trab_Compiladores.AnalisadorLexico
 
             column = 1;
             line = 1;
-            filePosition = 0;
+            filePosition = -1;
             
             _file = _fileService.ReadAllText(path);
             TokenResult tokenResult;
@@ -57,9 +57,8 @@ namespace Trab_Compiladores.AnalisadorLexico
             column = 1;
             line++;
         }
-
-            character = filePosition > _file.Length? ' ': _file[filePosition];
             filePosition++;
+            character = filePosition >= _file.Length? ' ': _file[filePosition];
             column++;
 
                     switch (state)

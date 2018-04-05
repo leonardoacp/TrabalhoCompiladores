@@ -1,12 +1,1 @@
-﻿if { } , ; "teste" 'teste' 89  
-var teste = info
-var teste != info
-var opa == info
-read
-/*if
-else
-//'program'*/
-'read'
-"var"
-num
-
+﻿if
