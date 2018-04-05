@@ -1,7 +1,7 @@
 ﻿program   Calculo {          
     num RetornarQuandoContadorE50(){
         co@nt = 0
-        while (count <= 50):
+        while (count <= 50)
            count++;
         return count;   
     } 
