@@ -1,10 +1,15 @@
-﻿if
-while
-read
-/*if
-else
-//'program'*/
-read
-var
-num
+﻿program   Calculo {          
 
+    char CompararDoisNumeros(num valor1, num valor2){
+        if(valor1 == valor2){
+            return "igual";
+        }
+        else if(valor1 !- valor2){
+            return "diferente";
+        }
+        else{
+            return "outro";
+        }
+    }
+    
+}

@@ -1,1 +1,49 @@
-﻿if
+﻿program   Calculo {          
+
+    num CalcularSomaDoisValores(num valor1, num valor2){
+        var total = valor1+valor2;
+    return total; }
+
+    num CalcularSubtracaoDoisValores(num valor1, num valor2){
+        var total = valor1-valor2;
+    return total; }
+
+    char CalcularDivisaoDoisValores(num valor1, num valor2){
+        var total = valor1/valor2;
+    return total; }
+
+    num CalcularMultiplicaoDoisValores(num valor1, num valor2){
+        var total = valor1*valor2;
+    return total; }
+
+    char CompararDoisNumeros(num valor1, num valor2){
+        if(valor1 == valor2){
+            return "igual";
+        }
+        else if(valor1 > valor2){
+            return "maior";
+        }
+        else if(valor1 >= valor2) {
+            return "maior ou igual";
+        }
+        else if(valor1 < valor2){
+            return "menor";
+        }
+        else if(valor1 <= valor2){
+            return "menor ou igual";
+        }
+        else if(valor1 != valor2){
+            return "diferente";
+        }
+        else{
+            return "outro";
+        }
+    }
+
+    num RetornarQuandoContadorE50(){
+        count = 0
+        while (count <= 50):
+           count++;
+        return count;   
+    } 
+}
