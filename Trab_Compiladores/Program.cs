@@ -21,6 +21,13 @@ namespace Trab_Compiladores
 
             var directory = new DirectoryInfo(filesDirectory);
             var Files = directory.GetFiles("*.txt").OrderBy(a => a.Name);
+            
+            Console.WriteLine("Tabela de simbolos");
+            foreach(var item in tsService.SymbolstTable()){
+
+                Console.WriteLine(item.Tag.ToString() + " => " + item.Lexeme);
+
+            }
 
             foreach(FileInfo file in Files) 
             {
