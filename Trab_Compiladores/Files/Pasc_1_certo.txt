@@ -42,7 +42,7 @@
 
     num RetornarQuandoContadorE50(){
         count = 0
-        while (count <= 50):
+        while (count <= 50)
            count++;
         return count;   
     } 
