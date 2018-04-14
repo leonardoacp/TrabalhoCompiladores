@@ -1,0 +1,5 @@
+program   Calculo {          
+    num TestPanicMode(){
+        1.bbb6
+    } 
+}

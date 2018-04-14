@@ -12,6 +12,8 @@ namespace Trab_Compiladores.AnalisadorLexico
         public  int line = 1;
         public int filePosition = -1;
         public string _file;
+        public int state = 1;
+        public System.Text.StringBuilder lexema = new System.Text.StringBuilder();
         
         public AnalisadorLexico(Service.TsService.ITsService tsService,Service.FileService.IFileService fileService){
 
@@ -24,16 +26,22 @@ namespace Trab_Compiladores.AnalisadorLexico
             column = 1;
             line = 1;
             filePosition = -1;
+            state = 1;
             
             _file = _fileService.ReadAllText(path);
             TokenResult tokenResult;
         
             do {
                 tokenResult = NextToken();
-                yield return tokenResult;
-            } while(tokenResult?.Token?.Tag != Tag.EOF && tokenResult.Status == true);
-        }
 
+                if(tokenResult.Status == true){
+                    state = 1;
+                    lexema = new System.Text.StringBuilder(); 
+                }
+                yield return tokenResult;
+
+            } while(tokenResult?.Token?.Tag != Tag.EOF);
+        }
 
 
         public void ReturnColumn(){
@@ -45,9 +53,8 @@ namespace Trab_Compiladores.AnalisadorLexico
 
         public TokenResult NextToken()
         {
-            var state = 1;
-            var lexema = new System.Text.StringBuilder(); 
-            char character = ' '; 
+
+        char character = ' '; 
 
 
         while(true){
@@ -57,9 +64,15 @@ namespace Trab_Compiladores.AnalisadorLexico
             column = 1;
             line++;
         }
-            filePosition++;
-            character = filePosition >= _file.Length? ' ': _file[filePosition];
-            column++;
+
+        filePosition++;
+        character = filePosition >= _file.Length? ' ': _file[filePosition];
+        column++;
+
+        // if (filePosition == _file.Length){
+        //     return new TokenResult(true, "" , new Token(Tag.EOF, "EOF", line, column));
+        // }
+
 
                     switch (state)
                     {
@@ -185,8 +198,9 @@ namespace Trab_Compiladores.AnalisadorLexico
                             }
                             else
                             {
+                                // ReturnColumn();
                                 ReturnColumn();
-                                //retornaPonteiro();
+                                state = 1;
                                 var errorMessage = string.Concat("ERRO => Token incompleto para o caractere ! na linha " , line , " e coluna " , column);
                                 return new TokenResult(false, errorMessage , null);
 
@@ -240,19 +254,74 @@ namespace Trab_Compiladores.AnalisadorLexico
                                 return new TokenResult(true, "" , new Token(Tag.CON_NUM, lexema.ToString(), line, column));
                             }
                             break;
-                        case 14:
 
-                            if (Char.IsLetterOrDigit(character) || character == '_')
+
+                        case 29:
+
+                            if (Char.IsLetterOrDigit(character))
                             {
-                                lexema.Append(character);
+                                state = 14;
+                                //ReturnColumn();
                                 // Permanece no state 14
                             }
+                            else if(character != ' ' && character != '\n'){
+
+                            state = 1;
+                            ReturnColumn();  
+
+                            }
+
+                        break;    
+
+                        case 14:
+
+                            var tags = Enum.GetValues(typeof(Tag));
+                            var tagsList = new List<string>();
+
+
+                            foreach (var item in tags)
+                            {
+                                var description = EnumModel.GetEnumDescription((Tag)item);
+                                if(!string.IsNullOrEmpty(description)){
+
+                                    tagsList.Add(EnumModel.GetEnumDescription((Tag)item));
+                                }
+
+                            }
+
+
+                            if (Char.IsLetterOrDigit(character))
+                            {
+                                lexema.Append(character);
+                                //state = 29;
+                                // Permanece no state 14
+                            }
+
+
+                            else if (!Char.IsLetterOrDigit(character) && !tagsList.Contains(character.ToString()) && character != ' ' && character != '\n')
+                            {
+                                //state = 1;
+                                //ReturnColumn();
+                                //state = 29;
+                                // Permanece no state 14
+                                var errorMessage = string.Concat("ERRO => Caractere invalido  '", character.ToString() , "'  na linha " , line , " e coluna " , column);
+                                return new TokenResult(false, errorMessage , null);    
+                            }
+
+
+
+                            // else if(!Char.IsLetterOrDigit(character) && character != ' ' && character != '\n'){
+
+                            //     var errorMessage = string.Concat("ERRO => Caractere invalido  '", character.ToString() , "'  na linha " , line , " e coluna " , column);
+                            //     return new TokenResult(false, errorMessage , null);    
+                            // }
+
                             else
                             { // state 15
                                 state = 15;
                                 ReturnColumn();
                                 //retornaPonteiro();
-                            var token = _tsService.SymbolstTable().FirstOrDefault(a => a.Lexeme.ToUpper() == lexema.ToString()?.ToUpper());
+                                var token = _tsService.SymbolstTable().FirstOrDefault(a => a.Lexeme.ToUpper() == lexema.ToString()?.ToUpper());
 
                                 if (token == null){
                                     return new TokenResult(true, "" , new Token(Tag.ID, lexema.ToString(), line, column));
@@ -290,6 +359,8 @@ namespace Trab_Compiladores.AnalisadorLexico
 
                             else if(filePosition == _file.Length){
                             
+                            state = 1;
+                            ReturnColumn();
                             var errorMessage = "ERRO => O comentário deve terminar com “*/”";
                             return new TokenResult(false, errorMessage , null);
 
@@ -307,6 +378,8 @@ namespace Trab_Compiladores.AnalisadorLexico
                         
                         else if(filePosition == _file.Length){
                             
+                            state = 1;
+                            ReturnColumn();
                             var errorMessage = "ERRO => O comentário deve terminar com “*/”";
                             return new TokenResult(false, errorMessage , null);
                         }
@@ -336,6 +409,8 @@ namespace Trab_Compiladores.AnalisadorLexico
                             }
                             else if (filePosition == _file.Length)
                             {
+                                state = 1;
+                                ReturnColumn();
                                 var errorMessage = "ERRO => String deve ser fechada com => \'  antes do fim de arquivo";
                                 return new TokenResult(false, errorMessage , null);
                                 //sinalizaErro("String deve ser fechada com \" antes do fim de arquivo");
@@ -351,9 +426,20 @@ namespace Trab_Compiladores.AnalisadorLexico
                                 lexema.Append(character);
                                 state = 27;
                             }
+
+                            else if(filePosition == _file.Length){
+                            
+                                state = 1;
+                                ReturnColumn();
+                            }
+
+                            else if(character == '\n' || character == ' '){
+
+                            }
+
                             else
                             {
-                                var errorMessage = string.Concat("ERRO => Padrao para double invalido na linha " , line , " coluna " , column);
+                                var errorMessage = string.Concat("ERRO => Padrao para número invalido: \"",character.ToString(),"\" na linha " , line , " coluna " , column);
                                 return new TokenResult(false, errorMessage , null);
                                 //sinalizaErro("Padrao para double invalido na linha " + line + " coluna " + column);
                             }
@@ -363,11 +449,16 @@ namespace Trab_Compiladores.AnalisadorLexico
                             {
                                 lexema.Append(character);
                             }
+                            else if(filePosition == _file.Length){
+                                
+                                state = 1;
+                                ReturnColumn();
+                            }
                             else
                             {
                                 ReturnColumn();
                                 // retornaPonteiro();
-                                // return new Token(Tag.DOUBLE, lexema.ToString(), line, column);
+                                return new TokenResult(true, "" , new Token(Tag.CON_NUM, lexema.ToString(), line, column));
                             }
                             break;
 
@@ -379,6 +470,8 @@ namespace Trab_Compiladores.AnalisadorLexico
                             }
                             else if (filePosition == _file.Length)
                             {
+                                state = 1;
+                                ReturnColumn();
                                 var errorMessage = "ERRO => String deve ser fechada com => \" antes do fim de arquivo";
                                 return new TokenResult(false, errorMessage , null);
                                 //sinalizaErro("String deve ser fechada com \" antes do fim de arquivo");
